@@ -24,7 +24,7 @@ menambahkan catatan apapun dibagian ini)
 #### Spring
 3. Apa itu library & dependency?
 
-    **Library** adalah *kumpulan program dalam bentuk Jar yang dapat dipanggil oleh Java saat dijalankan
+    **Library** adalah *kumpulan class-class yang dapat dipanggil oleh Java saat dijalankan
     dan berguna untuk memudahkan para pengguna untuk mengembangkan aplikasinya*
     
     **Dependency** adalah *ketergantungan antara suatu kelas dengan kelas lain di Java atau 
