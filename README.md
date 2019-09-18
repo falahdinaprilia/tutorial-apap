@@ -86,3 +86,6 @@ dikemudian hari, dan tambahkan tulisan yang membuat Anda mengerti)
     nomor telepon restoran yang sudah ditambahkan.*
     
     <a href="https://imgbb.com/"><img src="https://i.ibb.co/GvqcMXL/Capture.png" alt="Capture" border="0"></a><br /><a target='_blank' href='https://babynamesetc.com/lists'></a><br />
+
+### What I did not understand
+- [ ] Syntax untuk Controller
