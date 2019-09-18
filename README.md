@@ -57,5 +57,30 @@ menambahkan catatan apapun dibagian ini)
 ### What I did not understand
 (tuliskan apa saja yang kurang Anda mengerti, Anda dapat men-_check_ apabila Anda sudah mengerti
 dikemudian hari, dan tambahkan tulisan yang membuat Anda mengerti)
-- [ ] Syntax untuk Spring 
-- [ ] Model dan Controller serta kegunaannya
+- [x] Syntax untuk Spring 
+- [x] Model dan Controller serta kegunaannya
+
+## Tutorial 2
+### What I have learned today
+1. Cobalah untuk menambahkan sebuah restoran dengan mengakses link berikut:
+   http://localhost:8080/restoran/add?idRestoran=1&nama=PanyuFC&alamat=Kantin%20Fasilkom&nomorTelepon=14022
+   Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
+   
+   *Terjadi error. Karena file add-restoran.html belum tersedia di folder templates.*
+   
+2. Pertanyaan 2: Cobalah untuk menambahkan sebuah restoran dengan mengakses link berikut:
+   http://localhost:8080/restoran/add?idRestoran=2&nama=KentukuFC&alamat=Kantin%20FIK
+   Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
+   
+   *Terjadi error. Karena tidak terdapat parameter Nomor Telepon pada link yang akan diakses sedangkan parameter tersebut diharuskan ada.*
+   
+3. Pertanyaan 3: Jika Papa APAP ingin melihat restoran PanyuFC, link apa yang harus diakses?
+
+    *http://localhost:8080/restoran/view?idRestoran=1*
+    
+4. Tambahkan 1 contoh restoran lainnya sesukamu. Lalu cobalah untuk mengakses http://localhost:8080/restoran/viewall, apa yang akan ditampilkan? Sertakan juga bukti screenshotmu.
+
+    *Link tersebut akan menampilkan semua list restoran berisi id restoran, nama restoran, alamat restoran, dan
+    nomor telepon restoran yang sudah ditambahkan.*
+    
+    <a href="https://imgbb.com/"><img src="https://i.ibb.co/GvqcMXL/Capture.png" alt="Capture" border="0"></a><br /><a target='_blank' href='https://babynamesetc.com/lists'></a><br />
