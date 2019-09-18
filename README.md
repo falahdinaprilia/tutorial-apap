@@ -72,7 +72,8 @@ dikemudian hari, dan tambahkan tulisan yang membuat Anda mengerti)
    http://localhost:8080/restoran/add?idRestoran=2&nama=KentukuFC&alamat=Kantin%20FIK
    Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
    
-   *Terjadi error. Karena tidak terdapat parameter Nomor Telepon pada link yang akan diakses sedangkan parameter tersebut diharuskan ada.*
+   *Terjadi error. Karena tidak terdapat parameter Nomor Telepon pada link yang akan diakses sedangkan 
+   pada class controller  diatur bahwa parameter tersebut diharuskan ada.*
    
 3. Pertanyaan 3: Jika Papa APAP ingin melihat restoran PanyuFC, link apa yang harus diakses?
 
