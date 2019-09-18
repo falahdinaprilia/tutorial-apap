@@ -66,14 +66,15 @@ dikemudian hari, dan tambahkan tulisan yang membuat Anda mengerti)
    http://localhost:8080/restoran/add?idRestoran=1&nama=PanyuFC&alamat=Kantin%20Fasilkom&nomorTelepon=14022
    Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
    
-   *Terjadi error. Karena file add-restoran.html belum tersedia di folder templates.*
+   *Terjadi error. Karena file add-restoran.html yang dikembalikan oleh fungsi add
+   pada class RestoranController.java belum tersedia di folder templates.*
    
 2. Pertanyaan 2: Cobalah untuk menambahkan sebuah restoran dengan mengakses link berikut:
    http://localhost:8080/restoran/add?idRestoran=2&nama=KentukuFC&alamat=Kantin%20FIK
    Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
    
    *Terjadi error. Karena tidak terdapat parameter Nomor Telepon pada link yang akan diakses sedangkan 
-   pada class controller  diatur bahwa parameter tersebut diharuskan ada.*
+   pada class RestoranController diatur bahwa parameter tersebut diharuskan ada.*
    
 3. Pertanyaan 3: Jika Papa APAP ingin melihat restoran PanyuFC, link apa yang harus diakses?
 
