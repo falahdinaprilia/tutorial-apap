@@ -4,6 +4,7 @@ package apap.tutorial.gopud.service;
 import apap.tutorial.gopud.model.RestoranModel;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface RestoranService {
     //Method untuk menambahkan Restoran
@@ -13,7 +14,8 @@ public interface RestoranService {
     List<RestoranModel> getRestoranList();
 
     //Method untuk mendapatkan data sebuah Restoran berdasarkan idRestoran
-    RestoranModel getRestoranByIdRestoran(String idRestoran);
+    Optional<RestoranModel> getRestoranByIdRestoran(Long idRestoran);
+    RestoranModel changeRestoran(RestoranModel restoranModel);
 
     // Method untuk update nomor telepon
     void ubahNomorTelepon(RestoranModel restoran, Integer nomorTeleponBaru);

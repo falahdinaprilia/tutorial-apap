@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RestoranInMemoryService implements RestoranService {
@@ -27,10 +28,15 @@ public class RestoranInMemoryService implements RestoranService {
     }
 
     @Override
-    public RestoranModel getRestoranByIdRestoran(String idRestoran) {
+    public RestoranModel changeRestoran(RestoranModel restoranModel) {
+        return null;
+    }
+
+    @Override
+    public Optional<RestoranModel> getRestoranByIdRestoran(Long idRestoran) {
         RestoranModel resto = null;
         for (RestoranModel restoran : listRestoran) {
-            String id = restoran.getIdRestoran();
+            Long id = restoran.getIdRestoran();
             if (id.equals(idRestoran)) {
                 resto = restoran;
             }
@@ -38,7 +44,7 @@ public class RestoranInMemoryService implements RestoranService {
         if (resto == null) {
             throw new IdRestorantNotFound("Restoran tidak ditemukan.");
         }
-        return resto;
+        return null;
     }
 
     @Override
