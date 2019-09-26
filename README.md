@@ -88,4 +88,49 @@ dikemudian hari, dan tambahkan tulisan yang membuat Anda mengerti)
     <a href="https://imgbb.com/"><img src="https://i.ibb.co/GvqcMXL/Capture.png" alt="Capture" border="0"></a><br /><a target='_blank' href='https://babynamesetc.com/lists'></a><br />
 
 ### What I did not understand
-- [ ] Syntax untuk Controller
+- [x] Syntax untuk Controller
+
+## Tutorial 3
+### What I have learned today
+1. Pada class MenuDb, terdapat method findByRestoranIdRestoran, apakah kegunaan dari
+method tersebut?
+
+    *method findByRestoranIdRestoran berguna untuk mencari restoran yang ada di database
+    berdasarkan idRestoran tersebut dan mengembalikannya dalam bentuk list bertipe MenuModel.*
+
+2. Pada class RestoranController, jelaskan perbedaan method addRestoranFormPage dan
+addRestoranSubmit?
+
+    *method addRestoranFormPage berguna untuk menampilkan halaman form html untuk menambahkan
+    restoran dengan beberapa data yang harus diisi. Sedangkan method addRestoranSubmit
+    berguna untuk menyimpan data yang telah diisi untuk menambahkan restoran ke dalam
+    database dan memberikan halaman berupa pemberitahuan apabila data berhasil ditambahkan.*
+
+3. Jelaskan apa kegunaan dari JPA Repository?
+
+    *JPA Repository berguna untuk memasukkan objek-objek java ke dalam suatu relational database.
+    JPA Respository dapat mempermudah dalam pengelolaan objek-objek java yang perlu dimasukkan
+    ke dalam database beserta ketentuan yang diharuskan.*
+
+4. Sebutkan dan jelaskan di bagian kode mana sebuah relasi antara RestoranModel dan
+MenuModel dibuat?
+
+    *Relasi antara RelationalModel dengan MenuModel terdapat pada @OneToMany dan @ManyToOne.
+    @OneToMany terdapat pada RestoranModel yang artinya satu restoran dapat memiliki banyak menu.
+    @ManyToOne terdapat pada MenuModel yang artinya banyak menu dapat dimiliki oleh satu restoran.
+    Dengan adanya definisi antara kedua model tersebut akan mempermudah dalam pengelolaan objek yang ada.*
+
+5. Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL, dan FetchType.EAGER
+
+    *FetchType.LAZY berguna ketika hanya ingin melakukan fetch disaat butuh datanya, biasa digunakan ketika
+    ada relasi one-to-many atau many-to-many.*
+     
+     *FetchType.EAGER berguna ketika ingin data yang akan di-fetch sudah ada saat dibutuhkan, jadi fetch dilakukan seawal mungkin.
+     Biasanya digunakan ketika ada relasi many-to-one atau one-to-one.*
+     
+     *CascadeType.ALL berguna ketika ingin melakukan perubahan pada suatu entitas A namun perubahan tersebut diterapkan juga
+     di entitas yang memiliki relasi dengan entitas A tersebut.Perubahan dapat terjadi berupa UPDATE, DELETE, dan sebagainya.
+     Contoh apabila ingin menghapus restoran, maka menunya akan terhapus juga.*
+
+### What I did not understand
+- [ ] Peletakan suatu method lebih baik di controller, model, atau service.
