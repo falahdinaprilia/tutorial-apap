@@ -1,23 +1,48 @@
 package apap.tutorial.gopud.model;
 
-public class RestoranModel {
-    private String idRestoran;
+import com.fasterxml.jackson.annotation.JsonTypeId;
+import org.hibernate.annotations.Fetch;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
+import java.util.List;
+
+@Entity
+@Table(name="restoran")
+ public class RestoranModel implements Serializable, Comparable<RestoranModel> {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idRestoran;
+
+    @NotNull
+    @Size(max = 20)
+    @Column(name="nama", nullable = false)
     private String nama;
+
+    @NotNull
+    @Size(max = 30)
+    @Column(name="alamat", nullable = false)
     private String alamat;
+
+    @NotNull
+    @Column(name="nomorTelepon", nullable = false)
     private Integer nomorTelepon;
 
-    public RestoranModel(String idRestoran, String nama, String alamat, Integer nomorTelepon) {
-        this.idRestoran = idRestoran;
-        this.nama = nama;
-        this.alamat = alamat;
-        this.nomorTelepon = nomorTelepon;
-    }
+    @NotNull
+    @Column(name="rating", nullable = false)
+    private Integer rating = 0;
 
-    public String getIdRestoran() {
+    @OneToMany(mappedBy= "restoran", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<MenuModel> listMenu;
+
+    public Long getIdRestoran() {
         return idRestoran;
     }
 
-    public void setIdRestoran(String idRestoran) {
+    public void setIdRestoran(Long idRestoran) {
         this.idRestoran = idRestoran;
     }
 
@@ -45,4 +70,24 @@ public class RestoranModel {
         this.nomorTelepon = nomorTelepon;
     }
 
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
+    }
+
+    public List<MenuModel> getListMenu() {
+        return listMenu;
+    }
+
+    public void setListMenu(List<MenuModel> listMenu) {
+        this.listMenu = listMenu;
+    }
+
+    @Override
+    public int compareTo(RestoranModel restolain) {
+        return this.nama.compareTo(restolain.nama);
+    }
 }
