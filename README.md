@@ -201,3 +201,6 @@ MenuModel dibuat?
     *Penggunaan th:object digunakan apabila ingin memasukkan data dari form ke object tersebut.
     Tujuan penggunaannya adalah untuk menghandle input dari user, menentukan objek yang terikat dengan
     data dari form(input) yang di submit.*
+    
+### What I did not understand
+- [ ] Kegunaan th:field dan syntaxnya lebih lanjut.
