@@ -62,6 +62,15 @@ public class MenuController {
         return "change-menu";
     }
 
+    //URL Mapping View
+    @RequestMapping(value= "/menu/delete", method = RequestMethod.POST)
+    private String delete(@ModelAttribute RestoranModel restoran, Model model) {
+        for (MenuModel menu : restoran.getListMenu()) {
+            menuService.deleteMenu(menu);
+        }
+        return "delete";
+    }
+
     // URL mapping view
     @RequestMapping("/menu/delete/id/{id}")
     public String hapusMenu (

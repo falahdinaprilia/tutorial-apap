@@ -50,4 +50,14 @@ public class MenuServiceImpl implements MenuService {
     public void hapusMenu(MenuModel menu) {
         menuDB.delete(menu);
     }
+
+    @Override
+    public void deleteMenu(MenuModel menu) {
+        menuDB.delete(menu);
+    }
+
+    @Override
+    public List<MenuModel> getListMenuOrderByHargaAsc(Long idRestoran) {
+        return menuDB.findByRestoranIdRestoranOrderByHargaAsc(idRestoran);
+    }
 }
