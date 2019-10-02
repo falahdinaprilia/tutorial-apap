@@ -133,4 +133,69 @@ MenuModel dibuat?
      Contoh apabila ingin menghapus restoran, maka menunya akan terhapus juga.*
 
 ### What I did not understand
-- [ ] Peletakan suatu method lebih baik di controller, model, atau service.
+- [x] Peletakan suatu method lebih baik di controller, model, atau service.
+
+## Tutorial 4
+### What I have learned today
+1. Jelaskan yang anda pelajari dari melakukan latihan nomor 2, dan jelaskan tahapan bagaimana
+   anda menyelesaikan latihan nomor 2
+   
+   *Saya mempelajari cara menggunakan fragment pada Thymeleaf dan menamai title yang diletakkan pada fragment header yang dinamis.*
+   
+   *Tahapan pengerjaan yaitu:*
+   
+   *a.       Pada fragment/fragment.html saya menambahkan baris kode yang berisi:
+        <nav th:fragment="navbar (pageTitle)" class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#" th:text="${pageTitle}">Navbar</a>*
+
+    *dimana nantinya tiap halaman akan berbeda-beda titlenya tergantung dari nilai dari pageTitle-nya.*
+    
+    *b.     Kemudian, di tiap halaman html, tambahkan pageTitle sebagai identifier di:
+           <object th:replace="fragments/fragment :: navbar (pageTitle = '......')"></object>*
+   
+2. Jelaskan yang anda pelajari dari latihan nomor 3, dan jelaskan tahapan bagaimana anda
+   menyelesaikan latihan nomor 3
+   
+   *Saya mempelajari bahwa sebuah form dapat membuat dynamic fields dimana beberapa data data disubmit sekaligus ke dalam database.*
+   
+   *Tahapan pengerjaan yaitu:*
+   
+   *a. Pada menuController, tambahkan Method add yang berguna untuk menyimpan satu menu yang belum memiliki atribut. Menu tersebut nantinya
+   akan digunakan pada baris pertama di form untuk menambah menu.*
+   
+   *b. Pada menuController, tambahkan Method addRow yang berguna untuk menambah baris input field untuk setiap atribut menu dan menyimpan data yang
+   dimasukkan ke dalam input field di baris tersebut.*
+   
+   *c. Pada menuController, tambahkan Method removeRow yang berguna untuk menghapus baris input field.*
+   
+   *d. Pada menuController, tambahkan Method addMenuSubmit yang berguna untuk men-submit banyak menu sekaligus.*
+   
+   *e. Pada template view form-add-menu.html tambahkan:*
+   
+   *<form th:action="@{/menu/add/{id}(id=${idRestoran})}" th:object="${restoran}" method="POST">
+            <input type="hidden" th:field="*{idRestoran}" />*
+            
+    ...........
+    
+    *<tr th:each="menu, rowStat : *{listMenu}">
+                     <td scope="row" style="text-align: center">
+                         <input class="form-control" type="text" name="nama" th:field="*{listMenu[__${rowStat.index}__].nama}"/>*
+                         
+     *yang berguna untuk memberikan index pada setiap th:field.*
+            
+
+3. Jelaskan perbedaan th:include dan th:replace
+
+    *th:include dan th:replace sama-sama berguna untuk memasukkan bagian dari halaman lain sebagai fragment.*
+    
+    *th:include berguna untuk memasukkan konten fragment ke dalam tag hostnya. Contoh: <div th:include="..."> content </div>,
+    fragment diletakkan di dalam tag div.*
+    
+    *th:replace berguna untuk menggantikan tag host dengan tag fragment. Contoh:  <div th:replace="..."> content </div> ,
+    div akan diganti dengan fragment.*
+    
+4. Jelaskan bagaimana penggunaan th:object beserta tujuannya
+
+    *Penggunaan th:object digunakan apabila ingin memasukkan data dari form ke object tersebut.
+    Tujuan penggunaannya adalah untuk menghandle input dari user, menentukan objek yang terikat dengan
+    data dari form(input) yang di submit.*

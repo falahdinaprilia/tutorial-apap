@@ -27,16 +27,6 @@ public class MenuController {
     @Autowired
     RestoranService restoranService;
 
-//    @RequestMapping(value = "/menu/add/{idRestoran}", method = RequestMethod.GET)
-//    private String addProductFormPage(@PathVariable(value = "idRestoran") Long idRestoran, Model model) {
-//        MenuModel menu = new MenuModel();
-//        RestoranModel restoran = restoranService.getRestoranByIdRestoran(idRestoran).get();
-//        menu.setRestoran(restoran);
-//
-//        model.addAttribute("menu", menu);
-//
-//        return "form-add-menu";
-//    }
 
     @RequestMapping(value = "/menu/add/{idRestoran}")
     private String add(@PathVariable(value = "idRestoran") Long idRestoran, Model model) {
@@ -78,14 +68,6 @@ public class MenuController {
         return "add-menu";
     }
 
-//    @RequestMapping(value = "menu/add", method = RequestMethod.POST)
-//    private String addProductSubmit(@ModelAttribute MenuModel menu, Model model) {
-//        menuService.addMenu(menu);
-//
-//        model.addAttribute("nama", menu.getNama());
-//
-//        return "add-menu";
-//    }
 
     // API yang digunakan untuk menuju halaman form change restoran
     @RequestMapping(value = "menu/change/{id}", method = RequestMethod.GET)
@@ -122,6 +104,26 @@ public class MenuController {
 //        MenuModel targetMenu = menuService.getMenuById(id).get();
 //        menuService.hapusMenu(targetMenu);
 //        return "hapus-menu";
+//    }
+
+    //    @RequestMapping(value = "/menu/add/{idRestoran}", method = RequestMethod.GET)
+//    private String addProductFormPage(@PathVariable(value = "idRestoran") Long idRestoran, Model model) {
+//        MenuModel menu = new MenuModel();
+//        RestoranModel restoran = restoranService.getRestoranByIdRestoran(idRestoran).get();
+//        menu.setRestoran(restoran);
+//
+//        model.addAttribute("menu", menu);
+//
+//        return "form-add-menu";
+//    }
+
+    //    @RequestMapping(value = "menu/add", method = RequestMethod.POST)
+//    private String addProductSubmit(@ModelAttribute MenuModel menu, Model model) {
+//        menuService.addMenu(menu);
+//
+//        model.addAttribute("nama", menu.getNama());
+//
+//        return "add-menu";
 //    }
 
 }
