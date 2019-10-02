@@ -158,6 +158,8 @@ MenuModel dibuat?
    
    *Saya mempelajari bahwa sebuah form dapat membuat dynamic fields dimana beberapa data data disubmit sekaligus ke dalam database.*
    
+   *Sebelumnya, saya menggunakan AJAX untuk menambahkan baris input field, namun ternyata bisa menggunakan Thymeleaf.*
+   
    *Tahapan pengerjaan yaitu:*
    
    *a. Pada menuController, tambahkan Method add yang berguna untuk menyimpan satu menu yang belum memiliki atribut. Menu tersebut nantinya
