@@ -8,7 +8,7 @@
     <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
-<object th:replace="fragments/fragment :: navbar"></object>
+<object th:replace="fragments/fragment :: navbar (pageTitle = '500 Internal Error')"></object>
 <h2>Internal Error!</h2>
 </body>
 </html>

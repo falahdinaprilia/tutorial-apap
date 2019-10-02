@@ -8,7 +8,7 @@
         <object th:include="fragments/fragment :: js" th:remove="tag"></object>
     </head>
     <body>
-        <object th:replace="fragments/fragment :: navbar"></object>
+        <object th:replace="fragments/fragment :: navbar (pageTitle = 'View Restoran')"></object>
         <div class="container-fluid">
         <h2>Informasi Restoran</h2>
             <div style="padding: 1rem">
