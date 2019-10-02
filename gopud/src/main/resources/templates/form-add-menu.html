@@ -9,60 +9,41 @@
 <body>
 <object th:replace="fragments/fragment :: navbar (pageTitle = 'Add Menu')"></object>
     <h3> Tambah Produk </h3>
-    <form class="form-control" th:action="@{/menu/add}" th:object="${menu}" method="POST">
-        <input type="hidden" th:field="*{restoran}" />
+    <form th:action="@{/menu/add/{id}(id=${idRestoran})}" th:object="${restoran}" method="POST">
+        <input type="hidden" th:field="*{idRestoran}" />
         <table id="myTable" class=" table-sm-responsive order-list">
             <thead>
             <tr>
-                <th>Nama</th>
-                <th>Deskripsi</th>
-                <th>Harga</th>
-                <th>Durasi Masak</th>
-                <th><button type="button" class="btn btn-sm btn-primary" id="addrow">Add Row</button></th>
+                <th scope="col" style="text-align: center"> Nama </th>
+                <th scope="col" style="text-align: center"> Deskripsi </th>
+                <th scope="col" style="text-align: center"> Harga </th>
+                <th scope="col" style="text-align: center"> Durasi Masak </th>
+                <th scope="col" style="text-align: center">
+                    <button type="submit" class="btn btn-primary" name="addRow">Add Row</button></th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td><input type="text" name="nama" /></td>
-                <td><input type="text" name="deskripsi" /></td>
-                <td><input type="number" name="harga" /></td>
-                <td><input type="number" name="durasiMasak" /></td>
-                <td><button type="button" class="btn btn-sm btn-danger">Hapus</button></td>
+            <tr th:each="menu, rowStat : *{listMenu}">
+                <td scope="row" style="text-align: center">
+                    <input class="form-control" type="text" name="nama" th:field="*{listMenu[__${rowStat.index}__].nama}"/>
+                </td>
+                <td scope="row" style="text-align: center">
+                    <input class="form-control" type="text" name="deskripsi" th:field="*{listMenu[__${rowStat.index}__].deskripsi}"/>
+                </td>
+                <td scope="row" style="text-align: center">
+                    <input class="form-control" type="number" name="harga" th:field="*{listMenu[__${rowStat.index}__].harga}"/>
+                </td>
+                <td scope="row" style="text-align: center">
+                    <input class="form-control" type="number" name="durasiMasak" th:field="*{listMenu[__${rowStat.index}__].durasiMasak}"/>
+                </td>
+                <td scope="col" style="text-align: left">
+                    <button class="btn btn-danger deleteRow" type="submit" name="removeRow" th:value="${rowStat.index}">Delete</button>
+                </td>
             </tr>
             </tbody>
         </table>
         <br>
-        <button type="submit" class="btn btn-primary"> Submit </button>
+        <button type="submit" class="btn btn-primary" name="save"> Submit </button>
     </form>
 </body>
-<script>
-    $(document).ready(function () {
-        var counter = 0;
-
-        $("#addrow").on("click", function () {
-            var newRow = $("<tr>");
-            var cols = "";
-
-            cols += '<td><input type="text" name="nama" /></td>';
-            cols += '<td><input type="text" name="deskripsi" /></td>';
-            cols += '<td><input type="number" name="harga" /></td>';
-            cols += '<td><input type="number" name="durasiMasak" /></td>';
-
-            cols += '<td><button type="button" class="btn btn-sm btn-danger ibtnDel">Hapus</button></td>';
-            newRow.append(cols);
-            $("table.order-list").append(newRow);
-            counter++;
-        });
-
-
-
-        $("table.order-list").on("click", ".ibtnDel", function (event) {
-            $(this).closest("tr").remove();
-            counter -= 1
-        });
-
-
-    });
-
-</script>
 </html>
