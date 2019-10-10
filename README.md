@@ -251,7 +251,7 @@ MenuModel dibuat?
    
 ###Lampiran
 
-*apabila gambar tidak muncul, gambar terletak di resource/static/img/*
+*apabila gambar tidak muncul, gambar terletak di gopud/src/main/resources/static/*
 
 ![Gopud-before](gopud/src/main/resources/static/img/G_before.jpg "Gopud before")
 
