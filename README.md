@@ -185,7 +185,6 @@ MenuModel dibuat?
                          
      *yang berguna untuk memberikan index pada setiap th:field.*
             
-
 3. Jelaskan perbedaan th:include dan th:replace
 
     *th:include dan th:replace sama-sama berguna untuk memasukkan bagian dari halaman lain sebagai fragment.*
@@ -203,4 +202,48 @@ MenuModel dibuat?
     data dari form(input) yang di submit.*
     
 ### What I did not understand
-- [ ] Kegunaan th:field dan syntaxnya lebih lanjut.
+- [x] Kegunaan th:field dan syntaxnya lebih lanjut.
+
+## Tutorial 5
+### What I have learned today
+1. Jelaskan bagian mana saja dari test yang dibuat pada latihan no 2 adalah given, when, dan and
+   then.
+   
+   *given: saat inisiasi objek restoranModel yang pada hal ini yaitu generateDummyRestoranModel.
+   Setelah itu, set Id restoran.*
+   
+   *when: saat restoranService mencari restoran dengan id restoran.*
+   
+   *then: dikembalikan restoran model dan ditampilkan di url /restoran/view?idRestoran=1.
+   Lalu expect halaman tersebut tersedia, halaman menampilkan string informasi restoran, nama resto,
+   alamat resto, dan list menunya. Serta memastikan bahwa resto adalah rentoranmodel yang diinisiasi di awal.
+   Terakhir, pastikan bahwa restoranService memanggil method getRestoranByIdRestoran(idRestoran) sebanyak 1 kali.*
+   
+2. Jelaskan perbedaan line coverage dan logic coverage.
+
+    *Line coverage adalah jenis coverage yang meng-cover per-statement.*
+    
+    *Logic covergae adalah jenis coverage yang meng-cover per-business logic. seperti if-else.*
+    
+3. Pada keadaan ideal, apa yang seharusnya dibuat terlebih dahulu, code atau unit test? Mengapa
+   seperti itu? Apa akibatnya jika urutannya dibalik, adakah risiko tak terlihat yang mungkin
+   terjadi?
+   
+   *Unit test terlebih dahulu karena di unit test kita membuat ekspektasi jalannya suatu fungsi.
+   Setelah jelas semua alurnya, barulah kita implementasikan code-nya. Akibat dari urutannya dibalik
+   yaitu apabila code terlebih dahulu, namun nanti jalannya tidak sesuai ekspektasi kita di unit test,
+   maka kita harus mengubah kembali code kita. Itu akan memakan waktu yang lebih lama dibandingkan jika
+   urutannya unit test dahulu, setelah itu code.*
+   
+4. [Bonus] Jelaskan mengapa pada latihan no 3, main class spring tidak diikutsertakan ke dalam
+   perhitungan coverage? Apa saja yang dapat menyebabkan suatu class dapat di-exclude dari
+   perhitungan code coverage.
+   
+   *karena kita telah membuat konfigurasi pada pom.xml untuk exclude atau tidak memasukkan main class
+   ke dalam class yang di test. Hal-hal yang dapat menyebabkan suatu class di exclude:*
+   
+   *a. apabila class memiliki coverage yang rendah padahal tidak perlu dilakukan test pada class tersebut.
+   Karena coverage yang rendah akan mempengaruhi coverage keseluruhan class yang berakibat coverage keseluruhan menjadi turun / rendah.*
+   
+   *b. class yang tidak memiliki process / tidak ada aktivitas yang dilakukan di dalamnya*.
+   
