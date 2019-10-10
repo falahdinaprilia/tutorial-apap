@@ -251,29 +251,31 @@ MenuModel dibuat?
    
 ###Lampiran
 
-![Gopud-before](img/G_before.jpg "")
+*apabila gambar tidak muncul, gambar terletak di resource/static/img/*
 
-![Gopud-after](img/G_after.jpg "Gopud after")
+![Gopud-before](gopud/src/main/resources/static/img/G_before.jpg "Gopud before")
 
-![Service-before](img/S_before.png "Service before")
+![Gopud-after](gopud/src/main/resources/static/img/G_after.jpg "Gopud after")
+
+![Service-before](gopud/src/main/resources/static/img/S_before.png "Service before")
    
-![Service-after](img/S_after.png "Service after")
+![Service-after](gopud/src/main/resources/static/img/S_after.png "Service after")
       
-![MenuService-before](img/MS_before.jpg "MenuService before")
+![MenuService-before](gopud/src/main/resources/static/img/MS_before.jpg "MenuService before")
  
-![MenuService-after](img/MS_after.png "MenuService after")
+![MenuService-after](gopud/src/main/resources/static/img/MS_after.png "MenuService after")
 
-![RestoranService-before](img/RS_before.png "RestoranService before")
+![RestoranService-before](gopud/src/main/resources/static/img/RS_before.png "RestoranService before")
 
-![RestoranService-after](img/RS_after.png "RestoranService after")
+![RestoranService-after](gopud/src/main/resources/static/img/RS_after.png "RestoranService after")
 
-![RestoranController-before](img/RC_before.png "RestoranController before")
+![RestoranController-before](gopud/src/main/resources/static/img/RC_before.png "RestoranController before")
 
-![RestoranController-after](img/RC_after.png "RestoranController after")
+![RestoranController-after](gopud/src/main/resources/static/img/RC_after.png "RestoranController after")
 
-![Controller-before](img/C_before.jpg "Controller before")
+![Controller-before](gopud/src/main/resources/static/img/C_before.jpg "Controller before")
 
-![Controller-after](img/C_after.png "Controller after")
+![Controller-after](gopud/src/main/resources/static/img/C_after.png "Controller after")
 
-![main-class-exclude](img/GopudApplication.png "main class exclude")
+![main-class-exclude](gopud/src/main/resources/static/img/GopudApplication.png "main class exclude")
 
