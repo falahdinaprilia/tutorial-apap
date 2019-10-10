@@ -253,6 +253,30 @@ MenuModel dibuat?
 
 *apabila gambar tidak muncul, gambar terletak di gopud/src/main/resources/static/img/*
 
+*link online* 
+
+<a href="https://ibb.co/7gWDMCS"><img src="https://i.ibb.co/xmjb9L2/C-after.png" alt="C-after" border="0"></a>
+<a href="https://ibb.co/C5y571Q"><img src="https://i.ibb.co/5W3W8ML/C-before.jpg" alt="C-before" border="0"></a>
+
+<a href="https://ibb.co/hdZnr2K"><img src="https://i.ibb.co/Jpyb8rz/G-after.jpg" alt="G-after" border="0"></a>
+<a href="https://ibb.co/g9g3q9j"><img src="https://i.ibb.co/7CyXMCY/G-before.jpg" alt="G-before" border="0"></a>
+
+<a href="https://ibb.co/nL81WDX"><img src="https://i.ibb.co/sVJ1BFT/Gopud-Application.png" alt="Gopud-Application" border="0"></a>
+
+<a href="https://ibb.co/kyfBZHs"><img src="https://i.ibb.co/b3ZmtWM/MS-after.png" alt="MS-after" border="0"></a>
+<a href="https://ibb.co/x1Nh70w"><img src="https://i.ibb.co/WkLn2w7/MS-before.jpg" alt="MS-before" border="0"></a>
+
+<a href="https://ibb.co/p0vTWsD"><img src="https://i.ibb.co/6nRSvph/RC-after.png" alt="RC-after" border="0"></a>
+<a href="https://ibb.co/31Q5ZF9"><img src="https://i.ibb.co/D4TP2MH/RC-before.png" alt="RC-before" border="0"></a>
+
+<a href="https://ibb.co/JrBfvxC"><img src="https://i.ibb.co/SVshtQJ/RS-after.png" alt="RS-after" border="0"></a>
+<a href="https://ibb.co/vd7GWWX"><img src="https://i.ibb.co/3FDqbbR/RS-before.png" alt="RS-before" border="0"></a>
+
+<a href="https://ibb.co/yFHkwLW"><img src="https://i.ibb.co/N2cN8wZ/S-after.png" alt="S-after" border="0"></a>
+<a href="https://ibb.co/Mhjcs9M"><img src="https://i.ibb.co/RSM397z/S-before.png" alt="S-before" border="0"></a>
+
+*link offline*
+
 ![Gopud-before](gopud/src/main/resources/static/img/G_before.jpg "Gopud before")
 
 ![Gopud-after](gopud/src/main/resources/static/img/G_after.jpg "Gopud after")
