@@ -250,15 +250,27 @@ MenuModel dibuat?
    *b. class yang tidak memiliki process / tidak ada aktivitas yang dilakukan di dalamnya*.
    
 ###Lampiran
-![Service before](img/S_before.jpg "")
+![Gopud before](img/G_before.jpg "")
+
+![Gopud after](img/G_after.jpg "")
+
+![Service before](img/S_before.png "")
    
 ![Service after](img/S_after.png "")
       
-![MenuService before](img/MS_before.png "")
+![MenuService before](img/MS_before.jpg "")
  
 ![MenuService after](img/MS_after.png "")
 
-![Controller before](img/C_before.png "")
+![RestoranService before](img/RS_before.png "")
+
+![RestoranService after](img/RS_after.png "")
+
+![RestoranController before](img/RC_before.png "")
+
+![RestoranController after](img/RC_after.png "")
+
+![Controller before](img/C_before.jpg "")
 
 ![Controller after](img/C_after.png "")
 
