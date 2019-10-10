@@ -11,10 +11,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Supplier;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -49,7 +47,7 @@ public class RestoranServiceImplTest {
     }
 
     @Test(expected = IdRestorantNotFound.class)
-    public void whenGetRestoranByIdCalledByExistingDataItShouldReturnCorrectData() {
+    public void whenGetRestoranByIdCalledButIdNotFound() {
         RestoranModel returnedData = new RestoranModel();
         returnedData.setNama("kaefci");
         returnedData.setAlamat("TB Simatupang");
@@ -81,5 +79,44 @@ public class RestoranServiceImplTest {
         assertEquals("dummy", dataFromServiceCall.getAlamat());
         assertEquals(Long.valueOf(1), dataFromServiceCall.getIdRestoran());
         assertEquals(Integer.valueOf(14022), dataFromServiceCall.getNomorTelepon());
+    }
+
+    @Test
+    public void whenDeleteRestoranCalledItShouldDeleteRestoranData() {
+        RestoranModel newRestoran = new RestoranModel();
+        newRestoran.setNama("mekdi");
+        newRestoran.setAlamat("pacil");
+        newRestoran.setNomorTelepon(14045);
+        restoranService.hapusRestoran(newRestoran);
+        verify(restoranDB, times(1)).delete(newRestoran);
+    }
+
+    @Test
+    public void whenChangeRestoranCalledbutRestoranNotFound() {
+        RestoranModel updateData = new RestoranModel();
+        updateData.setIdRestoran(1L);
+        when(restoranDB.findById(1L)).thenReturn(Optional.of(updateData));
+        when(restoranService.changeRestoran(updateData)).thenThrow(new NullPointerException());
+        assertNull(restoranService.changeRestoran(updateData));
+    }
+    @Test
+    public void whenGetRestoranByIdCalledByExistingDataItShouldReturnCorrectData() {
+        RestoranModel returnedData = new RestoranModel();
+        returnedData.setNama("kaefci");
+        returnedData.setAlamat("TB Simatupang");
+        returnedData.setIdRestoran((long)1);
+        returnedData.setNomorTelepon(14022);
+
+        when(restoranDB.findByIdRestoran(1L)).thenReturn(Optional.of(returnedData));
+        when(restoranService.getRestoranByIdRestoran(1L)).thenReturn(Optional.of(returnedData));
+        Optional<RestoranModel> dataFromServiceCall =
+                restoranService.getRestoranByIdRestoran(1L);
+//        verify(restoranDB, times(1)).findByIdRestoran(1L);
+        assertTrue(dataFromServiceCall.isPresent());
+        RestoranModel dataFromOptional = dataFromServiceCall.get();
+        assertEquals("kaefci", dataFromOptional.getNama());
+        assertEquals("TB Simatupang", dataFromOptional.getAlamat());
+        assertEquals(Long.valueOf(1), dataFromOptional.getIdRestoran());
+        assertEquals(Integer.valueOf(14022), dataFromOptional.getNomorTelepon());
     }
 }
