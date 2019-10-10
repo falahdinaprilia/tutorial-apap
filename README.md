@@ -251,7 +251,7 @@ MenuModel dibuat?
    
 ###Lampiran
 
-![Gopud before](img/G_before.jpg "")
+![Gopud-before](img/G_before.jpg "")
 
 ![Gopud-after](img/G_after.jpg "Gopud after")
 
