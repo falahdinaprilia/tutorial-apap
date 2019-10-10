@@ -253,7 +253,7 @@ MenuModel dibuat?
 
 *apabila gambar tidak muncul, gambar terletak di gopud/src/main/resources/static/*
 
-![Gopud-before](gopud/src/main/resources/static/img/G_before.jpg "Gopud before")
+![Gopud-before](gopud/src/main/resources/static/img/G_before.jpg)
 
 ![Gopud-after](gopud/src/main/resources/static/img/G_after.jpg "Gopud after")
 
