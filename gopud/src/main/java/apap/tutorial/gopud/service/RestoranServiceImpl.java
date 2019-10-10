@@ -51,11 +51,6 @@ public class RestoranServiceImpl implements RestoranService {
     }
 
     @Override
-    public void ubahNomorTelepon(RestoranModel restoran, Integer nomorTeleponBaru) {
-
-    }
-
-    @Override
     public void hapusRestoran(RestoranModel restoran) {
         restoranDB.delete(restoran);
     }

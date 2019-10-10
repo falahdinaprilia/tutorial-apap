@@ -48,11 +48,6 @@ public class RestoranInMemoryService implements RestoranService {
     }
 
     @Override
-    public void ubahNomorTelepon(RestoranModel restoran, Integer nomorTeleponBaru) {
-        restoran.setNomorTelepon(nomorTeleponBaru);
-    }
-
-    @Override
     public void hapusRestoran(RestoranModel restoran) {
         listRestoran.remove(restoran);
     }

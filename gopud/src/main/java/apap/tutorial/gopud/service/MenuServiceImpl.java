@@ -47,11 +47,6 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public void hapusMenu(MenuModel menu) {
-        menuDB.delete(menu);
-    }
-
-    @Override
     public void deleteMenu(MenuModel menu) {
         menuDB.delete(menu);
     }
