@@ -101,4 +101,19 @@ public class RestoranControllerTest {
                 .andExpect(MockMvcResultMatchers.view().name("add-restoran"))
                 .andExpect(model().attribute("namaResto", is(nama)));
     }
+
+    @Test
+    public void whenViewRestoranByIdRestoranAccessItShouldShowRestoranData() throws Exception{
+        RestoranModel restoranModel = generateDummyRestoranModel(1);
+        restoranModel.setIdRestoran((long)1);
+        when(restoranService.getRestoranByIdRestoran(1L)).thenReturn(Optional.of(restoranModel));
+        mockMvc.perform(get("/restoran/view?idRestoran=1"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(content().string(Matchers.containsString("Informasi Restoran")))
+                .andExpect(model().attribute("resto", hasProperty("nama", is("dummy 1"))))
+                .andExpect(model().attribute("resto", hasProperty("alamat", is("alamat 1"))))
+                .andExpect(model().attribute("listMenu", hasSize(0)))
+                .andExpect(model().attribute("resto", is(restoranModel)));
+        verify(restoranService, times(1)).getRestoranByIdRestoran(1L);
+    }
 }
