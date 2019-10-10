@@ -221,9 +221,11 @@ MenuModel dibuat?
    
 2. Jelaskan perbedaan line coverage dan logic coverage.
 
-    *Line coverage adalah jenis coverage yang meng-cover per-statement.*
+    *Line coverage adalah jenis coverage yang mengacu pada seberapa besar cakupan kode perbarisnya terhadap kegunaan
+    di dalam sistem.*
     
-    *Logic covergae adalah jenis coverage yang meng-cover per-business logic. seperti if-else.*
+    *Logic covergae adalah jenis coverage yang mengacu pada seberapa besar kode dapat menghandle kemungkinan-kemungkinan
+    yang terjadi pada logika proses-proses pada sistem.*
     
 3. Pada keadaan ideal, apa yang seharusnya dibuat terlebih dahulu, code atau unit test? Mengapa
    seperti itu? Apa akibatnya jika urutannya dibalik, adakah risiko tak terlihat yang mungkin
