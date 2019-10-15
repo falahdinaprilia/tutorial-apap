@@ -17,9 +17,6 @@ public interface RestoranService {
     Optional<RestoranModel> getRestoranByIdRestoran(Long idRestoran);
     RestoranModel changeRestoran(RestoranModel restoranModel);
 
-    // Method untuk update nomor telepon
-    void ubahNomorTelepon(RestoranModel restoran, Integer nomorTeleponBaru);
-
     //Method untuk menghapus restoran
     void hapusRestoran(RestoranModel restoran);
 }

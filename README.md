@@ -185,7 +185,6 @@ MenuModel dibuat?
                          
      *yang berguna untuk memberikan index pada setiap th:field.*
             
-
 3. Jelaskan perbedaan th:include dan th:replace
 
     *th:include dan th:replace sama-sama berguna untuk memasukkan bagian dari halaman lain sebagai fragment.*
@@ -203,4 +202,104 @@ MenuModel dibuat?
     data dari form(input) yang di submit.*
     
 ### What I did not understand
-- [ ] Kegunaan th:field dan syntaxnya lebih lanjut.
+- [x] Kegunaan th:field dan syntaxnya lebih lanjut.
+
+## Tutorial 5
+### What I have learned today
+1. Jelaskan bagian mana saja dari test yang dibuat pada latihan no 2 adalah given, when, dan and
+   then.
+   
+   *given: saat inisiasi objek restoranModel yang pada hal ini yaitu generateDummyRestoranModel.
+   Setelah itu, set Id restoran.*
+   
+   *when: saat restoranService mencari restoran dengan id restoran.*
+   
+   *then: dikembalikan restoran model dan ditampilkan di url /restoran/view?idRestoran=1.
+   Lalu expect halaman tersebut tersedia, halaman menampilkan string informasi restoran, nama resto,
+   alamat resto, dan list menunya. Serta memastikan bahwa resto adalah rentoranmodel yang diinisiasi di awal.
+   Terakhir, pastikan bahwa restoranService memanggil method getRestoranByIdRestoran(idRestoran) sebanyak 1 kali.*
+   
+2. Jelaskan perbedaan line coverage dan logic coverage.
+
+    *Line coverage adalah jenis coverage yang mengacu pada seberapa besar cakupan kode perbarisnya terhadap kegunaan
+    di dalam sistem.*
+    
+    *Logic covergae adalah jenis coverage yang mengacu pada seberapa besar kode dapat menghandle kemungkinan-kemungkinan
+    yang terjadi pada logika proses-proses pada sistem.*
+    
+3. Pada keadaan ideal, apa yang seharusnya dibuat terlebih dahulu, code atau unit test? Mengapa
+   seperti itu? Apa akibatnya jika urutannya dibalik, adakah risiko tak terlihat yang mungkin
+   terjadi?
+   
+   *Unit test terlebih dahulu karena di unit test kita membuat ekspektasi jalannya suatu fungsi.
+   Setelah jelas semua alurnya, barulah kita implementasikan code-nya. Akibat dari urutannya dibalik
+   yaitu apabila code terlebih dahulu, namun nanti jalannya tidak sesuai ekspektasi kita di unit test,
+   maka kita harus mengubah kembali code kita. Itu akan memakan waktu yang lebih lama dibandingkan jika
+   urutannya unit test dahulu, setelah itu code.*
+   
+4. [Bonus] Jelaskan mengapa pada latihan no 3, main class spring tidak diikutsertakan ke dalam
+   perhitungan coverage? Apa saja yang dapat menyebabkan suatu class dapat di-exclude dari
+   perhitungan code coverage.
+   
+   *karena kita telah membuat konfigurasi pada pom.xml untuk exclude atau tidak memasukkan main class
+   ke dalam class yang di test. Hal-hal yang dapat menyebabkan suatu class di exclude:*
+   
+   *a. apabila class memiliki coverage yang rendah padahal tidak perlu dilakukan test pada class tersebut.
+   Karena coverage yang rendah akan mempengaruhi coverage keseluruhan class yang berakibat coverage keseluruhan menjadi turun / rendah.*
+   
+   *b. class yang tidak memiliki process / tidak ada aktivitas yang dilakukan di dalamnya*.
+   
+###Lampiran
+
+*apabila gambar tidak muncul, gambar terletak di gopud/src/main/resources/static/img/*
+
+*link online* 
+
+<a href="https://ibb.co/7gWDMCS"><img src="https://i.ibb.co/xmjb9L2/C-after.png" alt="C-after" border="0"></a>
+<a href="https://ibb.co/C5y571Q"><img src="https://i.ibb.co/5W3W8ML/C-before.jpg" alt="C-before" border="0"></a>
+
+<a href="https://ibb.co/hdZnr2K"><img src="https://i.ibb.co/Jpyb8rz/G-after.jpg" alt="G-after" border="0"></a>
+<a href="https://ibb.co/g9g3q9j"><img src="https://i.ibb.co/7CyXMCY/G-before.jpg" alt="G-before" border="0"></a>
+
+<a href="https://ibb.co/nL81WDX"><img src="https://i.ibb.co/sVJ1BFT/Gopud-Application.png" alt="Gopud-Application" border="0"></a>
+
+<a href="https://ibb.co/kyfBZHs"><img src="https://i.ibb.co/b3ZmtWM/MS-after.png" alt="MS-after" border="0"></a>
+<a href="https://ibb.co/x1Nh70w"><img src="https://i.ibb.co/WkLn2w7/MS-before.jpg" alt="MS-before" border="0"></a>
+
+<a href="https://ibb.co/p0vTWsD"><img src="https://i.ibb.co/6nRSvph/RC-after.png" alt="RC-after" border="0"></a>
+<a href="https://ibb.co/31Q5ZF9"><img src="https://i.ibb.co/D4TP2MH/RC-before.png" alt="RC-before" border="0"></a>
+
+<a href="https://ibb.co/JrBfvxC"><img src="https://i.ibb.co/SVshtQJ/RS-after.png" alt="RS-after" border="0"></a>
+<a href="https://ibb.co/vd7GWWX"><img src="https://i.ibb.co/3FDqbbR/RS-before.png" alt="RS-before" border="0"></a>
+
+<a href="https://ibb.co/yFHkwLW"><img src="https://i.ibb.co/N2cN8wZ/S-after.png" alt="S-after" border="0"></a>
+<a href="https://ibb.co/Mhjcs9M"><img src="https://i.ibb.co/RSM397z/S-before.png" alt="S-before" border="0"></a>
+
+*link offline*
+
+![Gopud-before](gopud/src/main/resources/static/img/G_before.jpg "Gopud before")
+
+![Gopud-after](gopud/src/main/resources/static/img/G_after.jpg "Gopud after")
+
+![Service-before](gopud/src/main/resources/static/img/S_before.png "Service before")
+   
+![Service-after](gopud/src/main/resources/static/img/S_after.png "Service after")
+      
+![MenuService-before](gopud/src/main/resources/static/img/MS_before.jpg "MenuService before")
+ 
+![MenuService-after](gopud/src/main/resources/static/img/MS_after.png "MenuService after")
+
+![RestoranService-before](gopud/src/main/resources/static/img/RS_before.png "RestoranService before")
+
+![RestoranService-after](gopud/src/main/resources/static/img/RS_after.png "RestoranService after")
+
+![RestoranController-before](gopud/src/main/resources/static/img/RC_before.png "RestoranController before")
+
+![RestoranController-after](gopud/src/main/resources/static/img/RC_after.png "RestoranController after")
+
+![Controller-before](gopud/src/main/resources/static/img/C_before.jpg "Controller before")
+
+![Controller-after](gopud/src/main/resources/static/img/C_after.png "Controller after")
+
+![main-class-exclude](gopud/src/main/resources/static/img/GopudApplication.png "main class exclude")
+
