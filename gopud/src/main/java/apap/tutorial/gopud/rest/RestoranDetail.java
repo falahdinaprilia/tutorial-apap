@@ -3,11 +3,10 @@ package apap.tutorial.gopud.rest;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.io.Serializable;
 import java.util.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RestoranDetail implements Serializable {
+public class RestoranDetail {
     private String status;
 
     @JsonProperty("restaurant-license")
