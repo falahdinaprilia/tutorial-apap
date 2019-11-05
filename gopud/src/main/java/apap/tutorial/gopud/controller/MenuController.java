@@ -2,22 +2,22 @@ package apap.tutorial.gopud.controller;
 
 import apap.tutorial.gopud.model.MenuModel;
 import apap.tutorial.gopud.model.RestoranModel;
+import apap.tutorial.gopud.rest.Setting;
 import apap.tutorial.gopud.service.MenuService;
 import apap.tutorial.gopud.service.RestoranService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
-import java.util.List;
 
+@RestController
 @Controller
 public class MenuController {
     @Autowired
@@ -94,6 +94,20 @@ public class MenuController {
             menuService.deleteMenu(menu);
         }
         return "delete";
+    }
+
+    @Autowired
+    RestTemplate restTemplate;
+
+    @Bean
+    public RestTemplate rest() {
+        return new RestTemplate();
+    }
+
+    @GetMapping(value="/recipe/excludeIngredients={ingredient}")
+    public String getStatus(@PathVariable("ingredient") String ingredient, Model model) throws Exception {
+        String path = Setting.recipeUrl + ingredient + "&apiKey=284b6b4b234843caa32353fc67dcbb00";
+        return restTemplate.getForEntity(path, String.class).getBody();
     }
 
     // URL mapping view

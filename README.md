@@ -303,3 +303,21 @@ MenuModel dibuat?
 
 ![main-class-exclude](gopud/src/main/resources/static/img/GopudApplication.png "main class exclude")
 
+## Tutorial 6
+### What I have learned today
+1. Apa itu postman? Apa kegunaan dari postman?
+
+    *postman adalah sebuah tools untuk uji coba API yang telah dibuat ataupun uji coba apakah berhasil mengakses API atau tidak.
+    Kegunaan postman adalah sebagai  GUI API Caller namun sekarang namun sekarang postman juga menyadiakan fitur lain yaitu Sharing 
+    Collection API for Documentation, Testing API, Realtime Collaboration Team, Monitoring API, dan Integration juga.*
+
+2. Apa kegunaan dari annotation @JsonIgnoreProperties?
+
+    *kegunaan @JsonIgnoreProperties adalah mengabaikan properties yang ditentukan dalam JSON serialization dan deserialization.
+    @JsonIgnoreProperties mempunyai elemen allowSetters, allowGetters, ignoreUnknown dan value. Elemen value menentukan nama spesifik
+    properties yang akan di ignore.*
+
+3. Apa itu ResponseEntity dan apa kegunaannya?
+
+    *ResponseEntity  mewakili seluruh respons HTTP: kode status, header, dan tubuh. 
+    ResponseEntity digunakan untuk mengkonfigurasi respon HTTP sepenuhnya.*
