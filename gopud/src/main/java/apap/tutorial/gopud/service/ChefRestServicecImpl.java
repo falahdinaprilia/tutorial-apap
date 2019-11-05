@@ -14,7 +14,7 @@ public class ChefRestServicecImpl implements ChefRestService {
 
     @Override
     public Mono<String> getChef(String chefName) {
-        return this.webClient.get().uri(Setting.chefUrl + "name=" + chefName)
+        return this.webClient.get().uri(Setting.chefUrl + "nama=" + chefName)
                 .retrieve().bodyToMono(String.class);
 
     }
