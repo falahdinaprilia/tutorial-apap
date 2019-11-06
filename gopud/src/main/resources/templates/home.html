@@ -13,9 +13,6 @@
         <h2 th:text=" 'Hello ' + ${#httpServletRequest.remoteUser} +' !'">Login as</h2>
         <h2> Selamat datang di GOPUD! </h2>
         <button class="btn btn-primary">
-            <a th:href="@{/restoran/updatePassword}" style="color: white"> Change Password </a>
-        </button>
-        <button class="btn btn-primary">
             <a th:href="@{/restoran/viewall}" style="color: white"> View All Restoran</a>
         </button>
         <hr>

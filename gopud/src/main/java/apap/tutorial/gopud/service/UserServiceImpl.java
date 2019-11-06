@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.regex.Pattern;
+
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -31,10 +33,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserModel updatePassword(UserModel user) {
+    public UserModel updatePassword(UserModel user, String newPassword) {
         UserModel userTarget = getUserByUsername(user.getUsername());
-        String pass = encrypt(user.getPassword());
+        String pass = encrypt(newPassword);
         userTarget.setPassword(pass);
         return userDB.save(userTarget);
+    }
+
+    @Override
+    public boolean validatePassword(String password) {
+        return password.length() >= 8 && Pattern.compile("[0-9]").matcher(password).find() && Pattern.compile("[a-zA-Z]").matcher(password).find();
     }
 }
