@@ -20,7 +20,8 @@ public class PageController {
     UserService userService;
 
     @RequestMapping("/")
-    public String home(Model model) {
+    public String home(Model model, Principal principal) {
+        model.addAttribute("user", userService.getUserByUsername(principal.getName()).getRole().getRole());
         model.addAttribute("listRole", roleService.findAll());
         return "home";
     }
