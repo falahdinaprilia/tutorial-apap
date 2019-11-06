@@ -434,5 +434,5 @@ padahal kita sudah memiliki class UserRoleServiceImpl.java?
     *UserDetailsServiceImpl merupakan interface inti dalam kerangka kerja Spring Security yang digunakan 
     untuk mengambil informasi otentikasi dan otorisasi pengguna. Maka UserDetailsServiceImpl diletakkan pada package security.
     Interface ini memiliki metode baca-saja tunggal bernama loadUserByUsername() yang mencari pengguna berdasarkan nama pengguna.
-    Sedangkan UserRoleServiceImpl hanya berisi service untuk role.*
+    Sedangkan UserRoleServiceImpl hanya berisi service user seperti addUser, getUserByUsername, dan lain-lain.*
     
