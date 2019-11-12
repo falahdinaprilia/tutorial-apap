@@ -321,3 +321,118 @@ MenuModel dibuat?
 
     *ResponseEntity  mewakili seluruh respons HTTP: kode status, header, dan tubuh. 
     ResponseEntity digunakan untuk mengkonfigurasi respon HTTP sepenuhnya.*
+    
+## Tutorial 7
+### What I have learned today
+1. Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode
+yang telah anda buat) konsep tersebut diimplementasi?
+
+    *Otentikasi adalah suatu proses yang merupakan sebuah tindakan pembuktian (validasi) terhadap identitas 
+    seorang pengguna pada saat akan memasuki (mengakses) sebuah sistem.*
+    
+    *pada kode, otentikasi diimplementasikan pada saat login*
+    
+        @Autowired
+        public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+            auth.userDetailsService(userDetailsService).passwordEncoder(encoder());
+        }
+        
+        <div th:if="${param.error}">
+            <span style="color: red">Invalid username or password</span>
+        </div>
+        <form th:action="@{/login}" method="POST">
+            <div class="row form-group">
+                <label class="col-sm-4">Username:</label>
+                <input type="text" class="col-sm-8 form-control input-sm" name="username">
+            </div>
+            <div class="row form-group">
+                <label class="col-sm-4">Password:</label>
+                <input type="password" class="col-sm-8 form-control input-sm" name="password">
+            </div>
+            <div class="row form-group">
+                <button type="submit" class="btn btn-primary">Sign In</button>
+            </div>
+        </form>
+        
+        @Override
+            public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+                UserModel user = userDB.findByUsername(username);
+        
+                Set<GrantedAuthority> grantedAuthorities = new HashSet<GrantedAuthority>();
+                grantedAuthorities.add(new SimpleGrantedAuthority(user.getRole().getRole()));
+        
+                return new User(user.getUsername(), user.getPassword(), grantedAuthorities);
+            }
+    
+    *Otorisasi adalah proses untuk memberikan izin seseorang untuk melakukan atau memiliki sesuatu.*
+    
+    *pada kode, otorisasi diimplementasikan pada pembatasan akses contohnya view all restoran hanya dapat
+    diakses oleh user dengan role MERCHANT*
+
+        protected void configure(HttpSecurity http) throws Exception {
+            http
+                .authorizeRequests()
+                .antMatchers("/css/**").permitAll()
+                .antMatchers("/js/**").permitAll()
+                .antMatchers("/restoran/**").hasAnyAuthority("MERCHANT")
+                .antMatchers("/user/addUser/**").hasAnyAuthority("ADMIN")
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login").permitAll()
+                .and()
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login").permitAll();
+                
+         <div class="row" th:if="${user} == 'ADMIN'">
+             <div class="col-md-6">
+                 <div class="card">
+                     <div class="card-header">Tambah User Baru</div>
+                     <div class="card-body">
+                         <form th:action="@{/user/addUser}" method="post">
+                             <label> User Name </label>
+                             <input type="text" name="username" class="form-control"/>
+ 
+                             <label> Password </label>
+                             <input type="password" name="password" class="form-control"/>
+ 
+                             <label> Role </label>
+                             <select name="role" class="form-control">
+                                 <option selected value="">-- Pilih Role --</option>
+                                 <option th:each="roleAvailable:${listRole}" th:value="${roleAvailable.id}" th:text="${roleAvailable.role}"></option>
+                             </select>
+ 
+                             <br>
+                             <button type="submit" class="btn btn-primary">Simpan</button>
+                         </form>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         
+         
+    
+2. Apa itu BCryptPasswordEncoder? Jelaskan secara singkat cara kerjanya!
+
+    *BCryptPasswordEncoder adalah fungsi yang digunakan untuk hashing password pada spring boot.*
+    
+    *Cara kerja BCryptPasswordEncoder yaitu BCryptPasswordEncoder secara otomatis menghitung dan 
+    menghasilkan hash secara acak dan setiap kali di call, maka hasil hash yang didapatkan akan berbeda-beda.*
+
+3. Jelaskan secara singkat apa itu UUID dan mengapa kita memakai UUID di UserModel.java?
+
+    *UUID (Universally Unique Identifier), juga dikenal sebagai GUID (Globally Unique Identifier) 
+    adalah kumpulan 36 karakter (string) yang dibuat secara acak (random) dan unik dengan teknik khusus. 
+    UUID terdiri dari 32 karakter alphanumerik dan 4 karakter tanda hubung (strip). 
+    Dikarenakan karakter UUID yang unik, sangat kecil kemungkinan sebuah karakter UUID akan sama 
+    bahkan jika di-generate dalam tempo 1 detik sekalipun. UUID umumnya digunakan sebagai Primary Key, termasuk pada UserModel.*
+    
+    *Kita memakai UUID di UserModel.java untuk menghindari konflik primary key dan juga untuk mengamankan data.*
+
+4. Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut
+padahal kita sudah memiliki class UserRoleServiceImpl.java?
+
+    *UserDetailsServiceImpl merupakan interface inti dalam kerangka kerja Spring Security yang digunakan 
+    untuk mengambil informasi otentikasi dan otorisasi pengguna. Maka UserDetailsServiceImpl diletakkan pada package security.
+    Interface ini memiliki metode baca-saja tunggal bernama loadUserByUsername() yang mencari pengguna berdasarkan nama pengguna.
+    Sedangkan UserRoleServiceImpl hanya berisi service user seperti addUser, getUserByUsername, dan lain-lain.*
+    
