@@ -2,17 +2,17 @@ package apap.tutorial.gopud.controller;
 
 import apap.tutorial.gopud.model.PasswordModel;
 import apap.tutorial.gopud.model.UserModel;
+import apap.tutorial.gopud.service.RoleService;
 import apap.tutorial.gopud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.security.Principal;
 
 @Controller
 @RequestMapping("/user")
@@ -20,9 +20,35 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private RoleService roleService;
+
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
-    private String addUserSubmit(@ModelAttribute UserModel user) {
-        userService.addUser(user);
+    private String addUserSubmit(@ModelAttribute UserModel user, @ModelAttribute PasswordModel password, Model model, Principal principal) {
+        String passwordMessage = "";
+        if (userService.getUserByUsername(user.getUsername()) == null) {
+            if (user.getPassword().equals(password.getConfirmPassword())) {
+                if (userService.validatePasswordDemo(user.getPassword())) {
+                    userService.addUser(user);
+                    passwordMessage = "User berhasil ditambahkan!";
+                    model.addAttribute("success", true);
+
+                } else {
+                    passwordMessage = "Password yang dimasukkan harus terdiri atas angka dan huruf serta minimal memiliki 10 karakter!";
+                    model.addAttribute("success", false);
+                }
+            }
+            else {
+                passwordMessage = "Password yang dimasukkan tidak sesuai dengan konfirmasi password Anda!";
+                model.addAttribute("success", false);
+            }
+        } else{
+            passwordMessage = "Username sudah ada!";
+            model.addAttribute("success", false);
+        }
+        model.addAttribute("user", userService.getUserByUsername(principal.getName()).getRole().getRole());
+        model.addAttribute("message", passwordMessage);
+        model.addAttribute("listRole", roleService.findAll());
         return "home";
     }
 

@@ -16,6 +16,12 @@
             <a th:href="@{/restoran/viewall}" style="color: white"> View All Restoran</a>
         </button>
         <hr>
+        <div class="alert alert-success" th:if="${success} == true">
+            <strong>Sukses!</strong> <p th:text="${message}"></p>
+        </div>
+        <div class="alert alert-danger" th:if="${success} == false">
+            <strong>Gagal!</strong> <p th:text="${message}"></p>
+        </div>
         <div class="row" th:if="${user} == 'ADMIN'">
             <div class="col-md-6">
                 <div class="card">
@@ -27,6 +33,9 @@
 
                             <label> Password </label>
                             <input type="password" name="password" class="form-control"/>
+
+                            <label> Confirm Password </label>
+                            <input type="password" name="confirmPassword" class="form-control"/>
 
                             <label> Role </label>
                             <select name="role" class="form-control">
