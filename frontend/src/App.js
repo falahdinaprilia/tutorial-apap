@@ -31,6 +31,9 @@ export default class App extends React.Component {
       <small>Class-based</small>
       </h1>
       <div className="container pt-3">
+      <input type="checkbox" /> Show Favorit
+      </div>
+      <div className="container pt-3">
         <div className="row">
         <div className="col-sm">
           <List

@@ -37,12 +37,18 @@ function App() {
     // schedule to set a new state
     setFavItems(newItems);
     }
+    // function showFavorit(item) {
+
+    // }
     return (
     <div className="container-fluid">
         <h1 className="text-center">
             Welcome!
             <small>Functional</small>
         </h1>
+      <div className="container pt-3">
+      <input type="checkbox" /> Show Favorit
+      </div>
         <div className="container pt-3">
             <div className="row">
                 <div className="col-sm">
