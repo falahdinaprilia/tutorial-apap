@@ -11,9 +11,6 @@ export default function List({ title, items, onItemClick }) {
             {items.length === 0 ? <EmptyState/> :
             <div className="list-group">
                 {
-
-                }
-                {
                     items.map(item =>(
                     <Item key={item.id} item={item} onChange={onItemClick} />
                 ))}

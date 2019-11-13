@@ -5,7 +5,8 @@ export default class App extends React.Component {
 // for class based component, you need to provide render
 // function
   state = {
-    favItems: []
+    favItems: [],
+    newState: false
   };
   handleItemClick = item => {
     const newItems = [...this.state.favItems];
@@ -22,8 +23,13 @@ export default class App extends React.Component {
     else newItems.splice(targetInd, 1);
     this.setState({ favItems: newItems });
   };
+  showFavorit = () => {
+    this.setState({
+      newState: !this.state.newState
+    });
+  };
   render() {
-    const { favItems } = this.state;
+    const { favItems, newState } = this.state;
     return (
     <div className="container-fluid">
       <h1 className="text-center">
@@ -31,7 +37,7 @@ export default class App extends React.Component {
       <small>Class-based</small>
       </h1>
       <div className="container pt-3">
-      <input type="checkbox" /> Show Favorit
+      <input type="checkbox" onClick={this.showFavorit} /> Show Favorit
       </div>
       <div className="container pt-3">
         <div className="row">
@@ -42,8 +48,8 @@ export default class App extends React.Component {
             onItemClick={this.handleItemClick}
           />
           </div>
-          <div className="col-sm">
-          <List
+          <div className={`col-sm ${newState ? "d-block" : "d-none"}`}>
+            <List
             title="My Favorite"
             items={favItems}
             onItemClick={this.handleItemClick2}

@@ -16,6 +16,7 @@ function App() {
     // below is the return value of useState
     // [favItems, setFavItems] = [state, setState]
     const [favItems, setFavItems] = useState(() => []);
+    const [newState, setNewState] = useState(false);
     function handleItemClick(item) {
         // immutability
         const newItems = [...favItems];
@@ -37,9 +38,9 @@ function App() {
     // schedule to set a new state
     setFavItems(newItems);
     }
-    // function showFavorit(item) {
-
-    // }
+    function showFavorit() {
+    setNewState(!newState);
+    }
     return (
     <div className="container-fluid">
         <h1 className="text-center">
@@ -47,7 +48,7 @@ function App() {
             <small>Functional</small>
         </h1>
       <div className="container pt-3">
-      <input type="checkbox" /> Show Favorit
+      <input type="checkbox" onClick={showFavorit} /> Show Favorit
       </div>
         <div className="container pt-3">
             <div className="row">
@@ -58,7 +59,7 @@ function App() {
                         onItemClick={handleItemClick}
                     />
                     </div>
-                    <div className="col-sm">
+                    <div className={`col-sm ${newState ? "d-block" : "d-none"}`}>
                     <List
                         title="My Favorite"
                         items={favItems}
