@@ -447,18 +447,31 @@ padahal kita sudah memiliki class UserRoleServiceImpl.java?
     Sedangkan fungsi handleItemClick2 dapat menghapus yang dipanggil oleh list my favorite. Pada nomor 3, saya menambahkan checkbox untuk on/off tampilan favorite list. 
     Saya menambahkan state bernama newState untuk menyimpan state saat ini yang valuenya false, artinya pertama kali favorite list tidak ditampilkan. Selanjutnya saya membuat fungsi bernama showFavorite, yang berfungsi untuk melakukan negasi terhadap value newState. Apabila newState bernilai false / checkbox tidak dicentang, maka list favorite tidak akan muncul, sedangkan apabila bernilai true / checkbox dicentang maka list favorite akan ditampilkan. Pada nomor 4, saya membuat komponen bernama EmptyState.Komponen tersebut akan menampilkan informasi bahwa list favorit kosong. Pada list.js, apabila list items 0, maka fungsi komponen EmptyState akan dipanggil, apabila tidak maka list akan ditampilkan. Saya melakukan approach untuk class-based dan functional.*
 
-## Nomor 1
+### Nomor 1
 ![nomor-1](img-tutorial-8/nomor1.JPG)
 
-## Nomor 2
+![nomor-1 before](img-tutorial-8/nomor1-before.JPG)
+![nomor-1 after](img-tutorial-8/nomor1-after.JPG)
+
+### Nomor 2
 ![nomor-2.1](img-tutorial-8/nomor2-1.JPG)
 
 ![nomor-2.2](img-tutorial-8/nomor2-2.JPG)
 
-## Nomor 3
+![nomor-2 tambah](img-tutorial-8/nomor2-tambah.JPG)
+![nomor-2 hapus](img-tutorial-8/nomor2-hapus.JPG)
+
+### Nomor 3
 ![nomor-3.1](img-tutorial-8/nomor3-1.JPG)
 
-## Nomor 4
+![nomor-3 before](img-tutorial-8/nomor3-before.JPG)
+![nomor-3 after](img-tutorial-8/nomor3-after.JPG)
+
+### Nomor 4
 ![nomor-4.1](img-tutorial-8/nomor4-1.JPG)
 
 ![nomor-4.2](img-tutorial-8/nomor4-2.JPG)
+
+![nomor-4 before](img-tutorial-8/nomor4-before.JPG)
+![nomor-4 after](img-tutorial-8/nomor4-after.JPG)
+
