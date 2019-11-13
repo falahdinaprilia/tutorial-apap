@@ -17,13 +17,23 @@ function App() {
     // [favItems, setFavItems] = [state, setState]
     const [favItems, setFavItems] = useState(() => []);
     function handleItemClick(item) {
-    // immutability
-    const newItems = [...favItems];
-    const newItem = { ...item };
-    // find index of item with id
-    const targetInd = newItems.findIndex(it => it.id === newItem.id);
-    if (targetInd < 0) newItems.push(newItem);
-    else newItems.splice(targetInd, 1); // delete 1 item at index targetInd
+        // immutability
+        const newItems = [...favItems];
+        const newItem = { ...item };
+        // find index of item with id
+        const targetInd = newItems.findIndex(it => it.id === newItem.id);
+        if (targetInd < 0) newItems.push(newItem);
+    // schedule to set a new state
+    setFavItems(newItems);
+    }
+    function handleItemClick2(item) {
+        // immutability
+        const newItems = [...favItems];
+        const newItem = { ...item };
+        // find index of item with id
+        const targetInd = newItems.findIndex(it => it.id === newItem.id);
+        if (targetInd < 0) newItems.push(newItem);
+        else newItems.splice(targetInd, 1); // delete 1 item at index targetInd
     // schedule to set a new state
     setFavItems(newItems);
     }
@@ -46,7 +56,7 @@ function App() {
                     <List
                         title="My Favorite"
                         items={favItems}
-                        onItemClick={handleItemClick}
+                        onItemClick={handleItemClick2}
                     />
                 </div>
             </div>

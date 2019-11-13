@@ -12,6 +12,13 @@ export default class App extends React.Component {
     const newItem = {...item};
     const targetInd = newItems.findIndex(it => it.id === newItem.id);
     if (targetInd < 0) newItems.push(newItem);
+    this.setState({ favItems: newItems });
+  };
+  handleItemClick2 = item => {
+    const newItems = [...this.state.favItems];
+    const newItem = {...item};
+    const targetInd = newItems.findIndex(it => it.id === newItem.id);
+    if (targetInd < 0) newItems.push(newItem);
     else newItems.splice(targetInd, 1);
     this.setState({ favItems: newItems });
   };
@@ -36,7 +43,7 @@ export default class App extends React.Component {
           <List
             title="My Favorite"
             items={favItems}
-            onItemClick={this.handleItemClick}
+            onItemClick={this.handleItemClick2}
           />
           </div>
         </div>
