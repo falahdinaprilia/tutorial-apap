@@ -450,7 +450,10 @@ padahal kita sudah memiliki class UserRoleServiceImpl.java?
 ### Nomor 1
 ![nomor-1](img-tutorial-8/nomor1.JPG)
 
+**before**
 ![nomor-1 before](img-tutorial-8/nomor1-before.JPG)
+
+**after**
 ![nomor-1 after](img-tutorial-8/nomor1-after.JPG)
 
 ### Nomor 2
@@ -458,13 +461,19 @@ padahal kita sudah memiliki class UserRoleServiceImpl.java?
 
 ![nomor-2.2](img-tutorial-8/nomor2-2.JPG)
 
+**tambah**
 ![nomor-2 tambah](img-tutorial-8/nomor2-tambah.JPG)
+
+**hapus**
 ![nomor-2 hapus](img-tutorial-8/nomor2-hapus.JPG)
 
 ### Nomor 3
 ![nomor-3.1](img-tutorial-8/nomor3-1.JPG)
 
+**before**
 ![nomor-3 before](img-tutorial-8/nomor3-before.JPG)
+
+**after**
 ![nomor-3 after](img-tutorial-8/nomor3-after.JPG)
 
 ### Nomor 4
@@ -472,6 +481,9 @@ padahal kita sudah memiliki class UserRoleServiceImpl.java?
 
 ![nomor-4.2](img-tutorial-8/nomor4-2.JPG)
 
+**before**
 ![nomor-4 before](img-tutorial-8/nomor4-before.JPG)
+
+**after**
 ![nomor-4 after](img-tutorial-8/nomor4-after.JPG)
 
