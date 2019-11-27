@@ -435,4 +435,55 @@ padahal kita sudah memiliki class UserRoleServiceImpl.java?
     untuk mengambil informasi otentikasi dan otorisasi pengguna. Maka UserDetailsServiceImpl diletakkan pada package security.
     Interface ini memiliki metode baca-saja tunggal bernama loadUserByUsername() yang mencari pengguna berdasarkan nama pengguna.
     Sedangkan UserRoleServiceImpl hanya berisi service user seperti addUser, getUserByUsername, dan lain-lain.*
-    
+
+
+## Tutorial 8
+### What I have learned today
+1.  Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan.
+
+    *Pada nomor 1, saya melakukan pengecekan Item.js, apakah checked sedang dalam keadaan true atau tidak. Apabila checked false, maka checkbox tidak ditampilkan.
+    Sedangkan apabila checked true, maka checkbox akan ditampilkan. Pada nomor 2, saya membuat fungsi untuk memisahkan antara operasi add dengan delete, 
+    bernama handleItemClick dan handleItemClick2. Fungsi handleItemClick hanya dapat melakukan operasi penambahan tanpa dapat menghapus yang dipanggil oleh list our menu.
+    Sedangkan fungsi handleItemClick2 dapat menghapus yang dipanggil oleh list my favorite. Pada nomor 3, saya menambahkan checkbox untuk on/off tampilan favorite list. 
+    Saya menambahkan state bernama newState untuk menyimpan state saat ini yang valuenya false, artinya pertama kali favorite list tidak ditampilkan. Selanjutnya saya membuat fungsi bernama showFavorite, yang berfungsi untuk melakukan negasi terhadap value newState. Apabila newState bernilai false / checkbox tidak dicentang, maka list favorite tidak akan muncul, sedangkan apabila bernilai true / checkbox dicentang maka list favorite akan ditampilkan. Pada nomor 4, saya membuat komponen bernama EmptyState.Komponen tersebut akan menampilkan informasi bahwa list favorit kosong. Pada list.js, apabila list items 0, maka fungsi komponen EmptyState akan dipanggil, apabila tidak maka list akan ditampilkan. Saya melakukan approach untuk class-based dan functional.*
+
+### Nomor 1
+![nomor-1](img-tutorial-8/nomor1.JPG)
+
+**before**
+![nomor-1 before](img-tutorial-8/nomor1-before.JPG)
+
+**after**
+![nomor-1 after](img-tutorial-8/nomor1-after.JPG)
+
+### Nomor 2
+![nomor-2.1](img-tutorial-8/nomor2-1.JPG)
+
+![nomor-2.2](img-tutorial-8/nomor2-2.JPG)
+
+**tambah**
+![nomor-2 tambah](img-tutorial-8/nomor2-tambah.JPG)
+
+**hapus**
+![nomor-2 hapus](img-tutorial-8/nomor2-hapus.JPG)
+
+### Nomor 3
+![nomor-3.1](img-tutorial-8/nomor3-1.JPG)
+
+**before**
+![nomor-3 before](img-tutorial-8/nomor3-before.JPG)
+
+**after**
+![nomor-3 after](img-tutorial-8/nomor3-after.JPG)
+
+### Nomor 4
+![nomor-4.1](img-tutorial-8/nomor4-1.JPG)
+
+![nomor-4.2](img-tutorial-8/nomor4-2.JPG)
+
+**before**
+![nomor-4 before](img-tutorial-8/nomor4-before.JPG)
+
+**after**
+![nomor-4 after](img-tutorial-8/nomor4-after.JPG)
+
