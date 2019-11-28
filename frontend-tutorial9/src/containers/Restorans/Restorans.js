@@ -90,6 +90,10 @@ class Restorans extends Component{
         this.setState({ 
             isCreate: false, 
             isEdit: false,
+            nama: "",
+            alamat: "",
+            nomorTelepon: "",
+            rating: ""
         });
     }
 
