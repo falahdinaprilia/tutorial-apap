@@ -11,6 +11,10 @@ class Restorans extends Component{
         super(props);
         this.state = {
             restorans: [],
+            restoransFilter: [],
+            currentPage : 1,
+            restoranPerPage : 5,
+            isSearch: false,
             isCreate: false,
             isEdit: false,
             isLoading: true,
@@ -93,7 +97,10 @@ class Restorans extends Component{
             nama: "",
             alamat: "",
             nomorTelepon: "",
-            rating: ""
+            rating: "",
+            query: "",
+            data: [],
+            filteredData: []
         });
     }
 
@@ -167,7 +174,50 @@ class Restorans extends Component{
         });
     };
 
+    //search
+    handleInputChange = event => {
+        const query = event.target.value;
+        this.setState({isSearch: true});
+    
+        this.setState(prevState => {
+          const filteredRestorans = prevState.restorans.filter(element => {
+            return element.nama.toLowerCase().startsWith(query.toLowerCase());
+          });
+    
+          return {
+            query,
+            filteredRestorans
+          };
+        });
+      };
+
     render() {
+        const {isSearch, restorans, currentPage, restoranPerPage} = this.state;
+        const indexOfLastRestoran = currentPage * restoranPerPage;
+        const indexOfFirstRestoran = indexOfLastRestoran - restoranPerPage;
+        const currentRestoran = restorans.slice(indexOfFirstRestoran, indexOfLastRestoran);
+
+        const renderRestorans = 
+            isSearch ?  this.state.filteredRestorans.map(restoran =>{
+                return (<Restoran
+                    key={restoran.id}
+                    nama={restoran.nama}
+                    alamat={restoran.alamat}
+                    nomorTelepon = {restoran.nomorTelepon}
+                    edit={() => this.editRestoranHandler(restoran)}
+                    delete={() => this.deleteRestoranHandler(restoran.idRestoran)}
+                />
+                )}) : 
+                currentRestoran.map(restoran => {
+                     return (<Restoran
+                        key={restoran.id}
+                        nama={restoran.nama}
+                        alamat={restoran.alamat}
+                        nomorTelepon = {restoran.nomorTelepon}
+                        edit={() => this.editRestoranHandler(restoran)}
+                        delete={() => this.deleteRestoranHandler(restoran.idRestoran)}
+                    />)})
+
         return(
             <React.Fragment>
                 <Modal show={this.state.isCreate || this.state.isEdit}
@@ -183,18 +233,17 @@ class Restorans extends Component{
                         + Add New Restoran
                     </button>
                 </div>
+                <br />
+                <form>
+                    <input
+                    className={classes.SearchBar}
+                    placeholder="Search for restaurant..."
+                    value={this.state.query}
+                    onChange={this.handleInputChange}
+                    />
+                </form>
                 <div className={classes.Restorans}>
-                    {this.state.restorans &&
-                    this.state.restorans.map(restoran =>
-                        <Restoran 
-                        key={restoran.id}
-                        nama={restoran.nama}
-                        alamat={restoran.alamat}
-                        nomorTelepon={restoran.nomorTelepon}
-                        edit={() => this.editRestoranHandler(restoran)}
-                        delete={() => this.deleteRestoranHandler(restoran.idRestoran)}
-                        />
-                    )}
+                    {renderRestorans}
                 </div>
             </React.Fragment>
         );
