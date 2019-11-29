@@ -23,6 +23,7 @@ class Restorans extends Component{
             nomorTelepon: "",
             rating: ""
         }
+        this.handleClick = this.handleClick.bind(this);
     }
 
     addRestoranHandler = () => {
@@ -180,16 +181,23 @@ class Restorans extends Component{
         this.setState({isSearch: true});
     
         this.setState(prevState => {
-          const filteredRestorans = prevState.restorans.filter(element => {
+          const restoransFilter = prevState.restorans.filter(element => {
             return element.nama.toLowerCase().startsWith(query.toLowerCase());
           });
     
           return {
             query,
-            filteredRestorans
+            restoransFilter
           };
         });
       };
+
+    //pagination
+    handleClick(event) {
+        this.setState({
+            currentPage: Number(event.target.id)
+        });
+    }
 
     render() {
         const {isSearch, restorans, currentPage, restoranPerPage} = this.state;
@@ -198,7 +206,7 @@ class Restorans extends Component{
         const currentRestoran = restorans.slice(indexOfFirstRestoran, indexOfLastRestoran);
 
         const renderRestorans = 
-            isSearch ?  this.state.filteredRestorans.map(restoran =>{
+            isSearch ?  this.state.restoransFilter.map(restoran =>{
                 return (<Restoran
                     key={restoran.id}
                     nama={restoran.nama}
@@ -217,6 +225,22 @@ class Restorans extends Component{
                         edit={() => this.editRestoranHandler(restoran)}
                         delete={() => this.deleteRestoranHandler(restoran.idRestoran)}
                     />)})
+
+        const pageNumbers = [];
+        for (let i = 1; i <= Math.ceil(restorans.length / restoranPerPage); i++) {
+            pageNumbers.push(i);
+        }
+        const renderPageNumbers = pageNumbers.map(number => {
+            return (
+                <button className={classes.Pagination}
+                    key={number}
+                    id={number}
+                    onClick={this.handleClick}
+                    >
+                    {number}
+                </button>
+            );
+        });
 
         return(
             <React.Fragment>
@@ -244,6 +268,9 @@ class Restorans extends Component{
                 </form>
                 <div className={classes.Restorans}>
                     {renderRestorans}
+                </div>
+                <div className={classes.Restorans}>
+                    {renderPageNumbers}
                 </div>
             </React.Fragment>
         );

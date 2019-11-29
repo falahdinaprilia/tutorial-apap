@@ -57,3 +57,23 @@
     margin:auto;
     padding-top: 20px;
 }
+
+.Pagination {
+    background-color: #c6e377;
+    outline: none;
+    cursor: pointer;
+    border:2px solid #8186d5;
+    color:black;
+    font-family: inherit;
+    font-size:1.2em;
+    padding: 10px 20px;
+    box-shadow: 2px 2px 2px #36622b;
+    margin: auto;
+}
+
+.Pagination:hover, .Pagination:active {
+    background-color: #A0DB41;
+    border:1px solid #966909;
+    color:black;
+    font-weight: bold;
+}
