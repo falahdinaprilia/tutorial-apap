@@ -510,12 +510,12 @@ padahal kita sudah memiliki class UserRoleServiceImpl.java?
 **before**
 ![nomor-3](img-tutorial-9/3.JPG)
 
-![nomor-1](img-tutorial-/1.JPG)
+![nomor-1](img-tutorial-9/1.JPG)
 
 **after**
-![nomor-4](img-tutorial-/4.JPG)
+![nomor-4](img-tutorial-9/4.JPG)
 
-![nomor-2](img-tutorial-/2.JPG)
+![nomor-2](img-tutorial-9/2.JPG)
 
 4. Jelaskan fungsi dari componentDidMount, shouldComponentUpdate, componentDidUpdate, componentWillReceiveProps, componentWillUnmount.
 Notes : Penjelasan harus mencantumkan “kapan fungsi dipanggil” dan “use case apa saja yang biasanya menggunakan lifecycle method tersebut”.
