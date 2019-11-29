@@ -523,12 +523,13 @@ Notes : Penjelasan harus mencantumkan “kapan fungsi dipanggil” dan “use ca
 *componentDidMount merupakan mounting lifecycle terakhir yang akan dipanggil ketika render selesai dipanggil untuk pertama kali.*
 
 *shouldComponentUpdate merupakan updating lifecycle kedua yang akan dipanggil setelah componentWillReceiveProps dipanggil dan sebelum rendering html dilakukan.*
+*Fungsi ini tidak pernah dipanggil pada inisiasi dan harus mengembalikan nilai yang berupa boolean (true atau false).*
 
 *componentDidUpdate merupakan updating lifecycle terakhir yang dipanggil setelah component berhasil dilakukan dan render html telah selesai di-load.*
 
 *componentWillReceiveProps merupakan updating lifecycle pertama yang akan dipanggil apabila Component memiliki props.*
 
-*componentWillMount merupakan mounting lifecycle pertama yang akan dipanggil sebelum render dipanggil untuk pertama kali.*
+*componentWillMount merupakan mounting lifecycle pertama yang akan dipanggil sebelum render dipanggil untuk pertama kali. Fungsi ini dipanggil ketika komponen sudah dibuang dari DOM. Fungsi ini digunakan ketika aksi-aksi yang berhubungan dengan pembersihan diperlukan. Use case-nya ketika membuang timer yang sebelumnya didefinisikan di componentDidMount.*
 
 
 
