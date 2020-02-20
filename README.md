@@ -487,3 +487,49 @@ padahal kita sudah memiliki class UserRoleServiceImpl.java?
 **after**
 ![nomor-4 after](img-tutorial-8/nomor4-after.JPG)
 
+
+## Tutorial 9
+### What I have learned today
+1. Ceritakan langkah - langkah yang kalian lakukan untuk solve LATIHAN no.1, dan mengapa kalian melakukan langkah - langkah tersebut?
+
+    *Langkah awal yang saya lakukan untuk menyelesaikan latihan 1 yaitu dengan mengeset kembali state dari nama, alamat, nomor telepon dan rating 
+    menjadi kosong pada fungsi canceledHandler(). Saat sudah selesai melakukan add restoran / edit retoran, state dari nama,alamat,nomor telepon dan 
+    rating berubah dari string kosong menjadi atribut yang sesuai pada form. Oleh karena itu, state dari atribut-atribut tadi perlu di set menjadi 
+    string kosong pada atribut addRestoran / editRestoran setelah form berhasil di submit agar valuenya menjadi kosong kembali.*
+
+2. Jelaskan fungsi dari async dan await!
+
+    *async berfungsi untuk mendefine sebuah asyncronous function. Hal ini membuat async function selalu mereturn sebuah nilai.* 
+    *Async menyebabkan fungsi dapat dijalankan secara paralel.*
+
+    *await merupakan operator yang digunakan untuk menunggu sebuah promise. Await hanya dapat digunakan di dalam Async block.*
+    *Await berfungsi untuk membuat JavaScripts menunggu sampai sebuah promise mengembalikan result. Hal ini membuat eksekusi berlangsung secara sekuensial.*
+
+3. Masukkan jawaban dari TODO (Screenshot) pada Component Lifecycle pada pertanyaan ini.
+
+**before**
+![nomor-3](img-tutorial-9/3.JPG)
+
+![nomor-1](img-tutorial-9/1.JPG)
+
+**after**
+![nomor-4](img-tutorial-9/4.JPG)
+
+![nomor-2](img-tutorial-9/2.JPG)
+
+4. Jelaskan fungsi dari componentDidMount, shouldComponentUpdate, componentDidUpdate, componentWillReceiveProps, componentWillUnmount.
+Notes : Penjelasan harus mencantumkan “kapan fungsi dipanggil” dan “use case apa saja yang biasanya menggunakan lifecycle method tersebut”.
+
+*componentDidMount merupakan mounting lifecycle terakhir yang akan dipanggil ketika render selesai dipanggil untuk pertama kali.*
+
+*shouldComponentUpdate merupakan updating lifecycle kedua yang akan dipanggil setelah componentWillReceiveProps dipanggil dan sebelum rendering html dilakukan.*
+*Fungsi ini tidak pernah dipanggil pada inisiasi dan harus mengembalikan nilai yang berupa boolean (true atau false).*
+
+*componentDidUpdate merupakan updating lifecycle terakhir yang dipanggil setelah component berhasil dilakukan dan render html telah selesai di-load.*
+
+*componentWillReceiveProps merupakan updating lifecycle pertama yang akan dipanggil apabila Component memiliki props.*
+
+*componentWillMount merupakan mounting lifecycle pertama yang akan dipanggil sebelum render dipanggil untuk pertama kali. Fungsi ini dipanggil ketika komponen sudah dibuang dari DOM. Fungsi ini digunakan ketika aksi-aksi yang berhubungan dengan pembersihan diperlukan. Use case-nya ketika membuang timer yang sebelumnya didefinisikan di componentDidMount.*
+
+
+
